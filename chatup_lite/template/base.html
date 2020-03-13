@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Chat Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+font-family: Arial;
+color: white;
+}
+
+.split {
+height: 100%;
+position: fixed;
+z-index: 1;
+top: 0;
+overflow-x: hidden;
+padding-top: 20px;
+}
+
+.left {
+width : 30%;
+color : black;
+left: 0;
+font-size: 20px;
+background-color: white;
+}
+
+.right {
+width :30%;
+right: 0;
+font-size: 20px;
+color:black;
+background-color: white;
+}
+
+.centered {
+width:40%;
+top: 50%;
+left: 50%;
+font-size: 20px;
+transform: translate(-50%, -50%);
+text-align: center;
+background-color: white;
+color: black;
+}
+</style>
+
+</head>
+<body>
+
+  <div  class="split left" >
+  	{% block div1 %}
+  	{% endblock%}
+  </div>
+  <div  class="split centered ">
+  	{% block div2 %}
+  	{% endblock%}
+    {% if "user" in request.COOKIES %}
+    <br></br>
+        <a href = "../welcome">Welcome Page</a>
+        <br></br>
+        <a href = "../logout">Logout</a>
+    {% else %}
+        <a href = "../login">Login</a>
+    {% endif %}
+  </div>
+  <div  class="split right ">
+  	{% block div3 %}
+  	{% endblock%}
+  </div>
+</html>

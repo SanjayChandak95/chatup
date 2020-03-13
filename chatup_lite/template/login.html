@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block div2 %}
+{{msg}}
+<form action = "." method="post">
+  {% csrf_token %}
+<h1>Login</h1>
+<hr>
+{{login.as_p}}
+<button type = "submit">Login</button>
+<br></br>
+<button type = "reset">Reset</button>
+</form>
+
+<a href = "..\signUp">Click here to SignUp</a>
+
+<script>
+  {% if messages %}
+        {% for message in messages %}
+            alert(message)
+        {% endfor %}
+  {% endif %}
+</script>
+{% endblock %}
